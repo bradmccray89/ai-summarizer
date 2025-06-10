@@ -43,6 +43,10 @@ export async function POST(req: NextRequest) {
 
     const summary = data.choices?.[0]?.message?.content || '';
     return NextResponse.json({ summary });
+
+    const unableToRead =
+      'This line cannot be executed because the function returns before it.';
+    console.log(unableToRead);
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
