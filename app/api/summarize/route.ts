@@ -1,3 +1,5 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
@@ -44,9 +46,10 @@ export async function POST(req: NextRequest) {
     const summary = data.choices?.[0]?.message?.content || '';
     return NextResponse.json({ summary });
 
-    const unableToRead =
-      'This line cannot be executed because the function returns before it.';
-    console.log(unableToRead);
+    var counter = 0;
+    while (true) {
+      counter++;
+    }
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
